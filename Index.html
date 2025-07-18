@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>کافه Tevis</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fefefe;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(45deg, #0f0f0f, #333);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header img {
+      width: 60px;
+      vertical-align: middle;
+    }
+
+    header h1 {
+      display: inline;
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 1rem;
+    }
+
+    .category {
+      width: 150px;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+
+    .category:hover {
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .category img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .category p {
+      margin: 0.5rem;
+      font-weight: bold;
+    }
+
+    .menu-items {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      background-color: #fafafa;
+    }
+
+    .menu-item {
+      width: 200px;
+      border: 1px solid #ddd;
+      border-radius: 1rem;
+      padding: 0.5rem;
+      text-align: center;
+      background: white;
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+    }
+
+    .menu-item h3 {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    .menu-item span {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Letter_T.svg/768px-Letter_T.svg.png" alt="logo">
+  <h1>کافه Tevis</h1>
+</header>
+
+<section class="categories">
+  <div class="category" onclick="showMenu('hot')">
+    <img src="https://source.unsplash.com/featured/?coffee" alt="">
+    <p>نوشیدنی گرم</p>
+  </div>
+  <div class="category" onclick="showMenu('cold')">
+    <img src="https://source.unsplash.com/featured/?juice" alt="">
+    <p>نوشیدنی سرد</p>
+  </div>
+  <div class="category" onclick="showMenu('dessert')">
+    <img src="https://source.unsplash.com/featured/?cake" alt="">
+    <p>دسر و کیک</p>
+  </div>
+  <div class="category" onclick="showMenu('salad')">
+    <img src="https://source.unsplash.com/featured/?salad" alt="">
+    <p>سالاد</p>
+  </div>
+  <div class="category" onclick="showMenu('pasta')">
+    <img src="https://source.unsplash.com/featured/?pasta" alt="">
+    <p>پاستا</p>
+  </div>
+  <div class="category" onclick="showMenu('pizza')">
+    <img src="https://source.unsplash.com/featured/?pizza" alt="">
+    <p>پیتزا</p>
+  </div>
+  <div class="category" onclick="showMenu('burger')">
+    <img src="https://source.unsplash.com/featured/?burger" alt="">
+    <p>برگر</p>
+  </div>
+  <div class="category" onclick="showMenu('starter')">
+    <img src="https://source.unsplash.com/featured/?fries" alt="">
+    <p>پیش‌غذا</p>
+  </div>
+  <div class="category" onclick="showMenu('breakfast')">
+    <img src="https://source.unsplash.com/featured/?breakfast" alt="">
+    <p>صبحانه</p>
+  </div>
+</section>
+
+<!-- بخش منو برای هر دسته -->
+<div class="menu-items" id="menu-hot">
+  <div class="menu-item">
+    <img src="https://source.unsplash.com/featured/?latte" />
+    <h3>لاته</h3>
+    <span>45,000 تومان</span>
+  </div>
+  <div class="menu-item">
+    <img src="https://source.unsplash.com/featured/?espresso" />
+    <h3>اسپرسو</h3>
+    <span>35,000 تومان</span>
+  </div>
+</div>
+
+<div class="menu-items" id="menu-cold">
+  <div class="menu-item">
+    <img src="https://source.unsplash.com/featured/?iced-tea" />
+    <h3>چای سرد</h3>
+    <span>40,000 تومان</span>
+  </div>
+  <div class="menu-item">
+    <img src="https://source.unsplash.com/featured/?smoothie" />
+    <h3>اسموتی توت‌فرنگی</h3>
+    <span>50,000 تومان</span>
+  </div>
+</div>
+
+<!-- سایر منوها به همین شکل اضافه کن یا از من می‌خوای برات تکمیل کنم -->
+
+<script>
+  function showMenu(type) {
+    const menus = document.querySelectorAll('.menu-items');
+    menus.forEach(menu => menu.style.display = 'none');
+
+    const selectedMenu = document.getElementById('menu-' + type);
+    if (selectedMenu) {
+      selectedMenu.style.display = 'flex';
+      window.scrollTo({ top: selectedMenu.offsetTop - 20, behavior: 'smooth' });
+    }
+  }
+</script>
+
+</body>
+</html>
